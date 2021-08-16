@@ -135,12 +135,26 @@ console.log(finalPassOptions.upperCase);
 //-------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
-
 // Function for getting a random element from an array
-//check out math.random 
 //---------------------------------------------------------------------------------------------------
 
-var combinedCharSet = specialCharsArr.concat(numCharsArr, lowerCaseCharsArr, upperCaseCharsArr);
+var initialCombinedCharSet = [];
+
+if (finalPassOptions.specialChars === false) {
+  var combinedCharSet = initialCombinedCharSet.concat(numCharsArr, lowerCaseCharsArr, upperCaseCharsArr);
+} 
+else if (finalPassOptions.numerals === false) 
+{ var combinedCharSet = initialCombinedCharSet.concat(specialCharsArr, lowerCaseCharsArr, upperCaseCharsArr);
+} 
+else if (finalPassOptions.lowerCase === false)
+{ var combinedCharSet = initialCombinedCharSet.concat(specialCharsArr, numCharsArr, upperCaseCharsArr);
+}
+else if (finalPassOptions.upperCase === false)
+{ var combinedCharSet = initialCombinedCharSet.concat(specialCharsArr, numCharsArr, lowerCaseCharsArr);
+} else 
+{
+var combinedCharSet = initialCombinedCharSet.concat(specialCharsArr, numCharsArr, lowerCaseCharsArr, upperCaseCharsArr);
+}
 
 console.log(combinedCharSet);
 
