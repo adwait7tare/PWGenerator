@@ -8,7 +8,7 @@ function passwordGenerator() {
   // create arrays
   // ------------------------------------------------------------------------------------------------
   //Array of special characters
-  var specialCharsArr = ['!', '@', '#', '$', '%', '&', '*'];
+  var specialCharsArr = ['!', '@', '#', '$', '%', '&', '*', ';', '?','/' ];
   console.log(specialCharsArr.length);
 
   //Array of numarical characters
@@ -175,79 +175,25 @@ function passwordGenerator() {
   return passToOutput;
 }
 
+//-------------------------------------------------------------------------------------------------
+// display password on the application when 'click' event occurs
+//-------------------------------------------------------------------------------------------------
 
-function displayPassword(){
+function displayPassword() {
   var passwordToDisplay = (passwordGenerator());
 
   console.log("Display following password = " + passwordToDisplay);
-  console.log ("password lenght = " + passwordToDisplay.length);
+  console.log("password lenght = " + passwordToDisplay.length);
 
-  var passwordTextBox = document.getElementById ('password');
+  var passwordTextBox = document.getElementById('password');
   passwordTextBox.value = passwordToDisplay;
 
 }
 
-
-var generatePassBtn = document.getElementById ('generate');
+var generatePassBtn = document.getElementById('generate');
 generatePassBtn.addEventListener('click', displayPassword);
 
+//-------------------------------------------------------------------------------------------------
+// ............... end of code ..............
+//-------------------------------------------------------------------------------------------------
 
-
-//Function to generate a password with the user input function created before (function to include a fucntion)
-
-// function generatePass {
-//create variables and call our function so we can use data from the previous funciotn
-//  var userOptions = getUserOptions ();
-
-// create a variable to store the newly generated password
-//var results = []
-
-// array to store teh types of characters to include in our password 
-//var userPosChar = []
-
-// array to contain at leaset one of each chosen tyoe of characters to make sure at least one of every character is being used (validation)
-
-// create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .concat())
-// if(userOptions.specialCharacters) {
-// take characters and concat()
-//take characters and push (randomizationfunction (SpecialCharacter)(after we randomize)
-//}
-// create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .concat())
-// for numarals
-
-// create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .concat())
-// for upper case chars 
-
-// create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .concat())
-// for lower case chars
-
-//create a for loop to pluck out random options objects and graing random characters from the array of possible character and contact them 
-//into the results variable
-
-//create another for loop to guarantee at least one character from each possible character in the results
-
-// // 
-
-
-// }
-
-
-
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
-
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
