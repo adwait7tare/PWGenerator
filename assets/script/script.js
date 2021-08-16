@@ -117,26 +117,47 @@ function runPassQualCheck() {
 
 var finalPassOptions = runPassQualCheck();
 
-console.log (finalPassOptions);
+console.log(finalPassOptions);
+console.log(finalPassOptions.length);
+console.log(finalPassOptions.specialChars);
+console.log(finalPassOptions.numerals);
+console.log(finalPassOptions.lowerCase);
+console.log(finalPassOptions.upperCase);
 
 
-// function passQualCheck(specCharTF, numCharTF, lowerCaseCharTF, upperCaseCharTF) {
+
+// ---------------------  Pass quality Check to be validated -------------------------------------
+// function passQualCheck() {
 //   if (specCharTF === false && numCharTF === false && lowerCaseCharTF === false && upperCaseCharTF === false) {
 //     alert("Please include at least one type of characters");
-//     RunQualCheck ();
+//     runPassQualCheck ();
 //     }
-//   }
+//-------------------------------------------------------------------------------------------------
 
-// passQualCheck();
-
-// console.log(passwordOptions.lenght);
-// ------------------------------------------------------------------------------------------------
-
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 // Function for getting a random element from an array
 //check out math.random 
-//-------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+
+var combinedCharSet = specialCharsArr.concat(numCharsArr, lowerCaseCharsArr, upperCaseCharsArr);
+
+console.log(combinedCharSet);
+
+var password = [];
+for (i = 0; i < finalPassOptions.length; i++) {
+  var randomNum = Math.floor(Math.random() * combinedCharSet.length);
+  console.log(randomNum);
+  password.push(combinedCharSet[randomNum]);
+  }
+  console.log (password);
+  var passToOutput = password.join('');
+  console.log(passToOutput);
+
+
+
+
+
 
 
 
@@ -155,21 +176,21 @@ console.log (finalPassOptions);
 // array to contain at leaset one of each chosen tyoe of characters to make sure at least one of every character is being used (validation)
 
 // create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .contact())
+//need to push our new random characters to the guaranteed characters (look up .concat())
 // if(userOptions.specialCharacters) {
-// take characters and contat()
+// take characters and concat()
 //take characters and push (randomizationfunction (SpecialCharacter)(after we randomize)
 //}
 // create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .contact())
+//need to push our new random characters to the guaranteed characters (look up .concat())
 // for numarals
 
 // create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .contact())
+//need to push our new random characters to the guaranteed characters (look up .concat())
 // for upper case chars 
 
 // create conditional statems that add the array of characters into an array of possible characters based on our user input
-//need to push our new random characters to the guaranteed characters (look up .contact())
+//need to push our new random characters to the guaranteed characters (look up .concat())
 // for lower case chars
 
 //create a for loop to pluck out random options objects and graing random characters from the array of possible character and contact them 
