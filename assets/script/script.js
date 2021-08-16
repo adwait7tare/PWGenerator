@@ -1,101 +1,200 @@
-// Funtion to collect information: 
-
+// alert ("hello - this is the password generator");
+// ------------------------------------------------------------------------------------------------
+// create arrays
+// ------------------------------------------------------------------------------------------------
 //Array of special characters
-var specialChar = ['@', ];
+var specialCharsArr = ['!', '@', '#', '$', '%', '&', '*'];
+console.log(specialCharsArr.length);
 
 //Array of numarical characters
+var numCharsArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+console.log(numCharsArr.length);
 
 //Array of lowerCase characters (look up .split())
+var lowerCaseCharsArr = ("abcdefghijklmnopqrstuvwxyz").split('');
+console.log(lowerCaseCharsArr[12]);
 
-//Arrat of upperCase characters (look up .split())
+// //Arrat of upperCase characters (look up .split())
+var upperCaseCharsArr = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split('');
+console.log(upperCaseCharsArr[25]);
 
-//Create a function that prompts the user forthe password options
-function getUserOptions() {
+// ------------------------------------------------------------------------------------------------
+// check for password quality
+// ------------------------------------------------------------------------------------------------
 
-// Create a variable to store the lenght of the password from the user input (look up parseInt())
-var passLength = prompt (parseInt("Enter password lenght"));
+function runPassQualCheck() {
+
+  // ------------------------------------------------------------------------------------------------
+  // check for password lenght
+  // ------------------------------------------------------------------------------------------------
+
+  function getPassLength() {
+    var passLength = parseInt(prompt("Please include lenght of the desired password"));
+    console.log("Password lenght input received " + passLength);
+    return passLength;
+  }
+
+  function checkPassLenght(passLength) {
+    //create a conditional statement to check if the lenght is an actual number and not a string
+    if (Number.isNaN(passLength)) {
+      alert("Passoword must be only a numerical number");
+      return checkPassLenght(getPassLength());
+    }
+    //create a conditional to check if the password lenght is at least 8 chars long
+    else if (passLength < 8) {
+      alert("Password must be at least 8 characters long");
+      return checkPassLenght(getPassLength());
+    }
+    //create a conditional to check if the password lenght is not exceeding (lower than) 128 chars long
+    else if (passLength > 128) {
+      alert("Password must be less than 128 characters long");
+      return checkPassLenght(getPassLength());
+    } else {
+      return passLength;
+    }
+  }
+
+  // save accepted password lenght in as a variable
+  var acceptedPassLength = checkPassLenght(getPassLength());
+
+  console.log("Accepted Password Lenght = " + acceptedPassLength);
+
+  // ------------------------------------------------------------------------------------------------
+  //Create a functions that prompts the user for the password options
+  // ------------------------------------------------------------------------------------------------
+
+  // confirm if special chars are ok to be included
+  function includeSpecialChar() {
+    var specCharIncluded = confirm('Would you like a special character included in your password?');
+    console.log(specCharIncluded);
+    return specCharIncluded;
+  }
+
+  // confirm if numerals are ok to be included
+  function includeNumChar() {
+    var numCharIncluded = confirm('Would you like a numeral included in your password?');
+    console.log(numCharIncluded);
+    return numCharIncluded;
+  }
+
+  // confirm if lower case chars are ok to be included
+  function includeLowerCaseChar() {
+    var lowerCaseCharIncluded = confirm('Would you like a lower case character included in your password?');
+    console.log(lowerCaseCharIncluded);
+    return lowerCaseCharIncluded;
+  }
+
+  // confirm if upper case chars are ok to be included
+  function includeUpperCaseChar() {
+    var upperCaseCharIncluded = confirm('Would you like a upper case character included in your password?');
+    console.log(upperCaseCharIncluded);
+    return upperCaseCharIncluded;
+  }
+
+  // store answers of password options as variables
+  var specCharTF = includeSpecialChar();
+  var numCharTF = includeNumChar();
+  var lowerCaseCharTF = includeLowerCaseChar();
+  var upperCaseCharTF = includeUpperCaseChar();
+
+  console.log("special char accepted = " + specCharTF);
+  console.log("numerals accepted = " + numCharTF);
+  console.log("lower case char accepted = " + lowerCaseCharTF);
+  console.log("upper case char accepted = " + upperCaseCharTF);
+
+
+  // create array of password options
+  var passwordOptions = {
+    length: acceptedPassLength,
+    specialChars: specCharTF,
+    numerals: numCharTF,
+    lowerCase: lowerCaseCharTF,
+    upperCase: upperCaseCharTF,
+  };
+
+  return passwordOptions;
 }
 
-//create a conditional statement to check if the lenght is an actual number and not a string
-//create a conditional to check if the password lenght is at least 8 chars long
-//create a conditional to check if the password lenght is not exceeding (lower than) 128 chars long
+var finalPassOptions = runPassQualCheck();
 
-//create four differnet conditional statements to store if the user password is going to use (continued on next line)
-//(continued) special chars, numbers and lower and upper case chars
+console.log (finalPassOptions);
 
-//Create a conditional statement to check if the user included at least some type of character - this could use if else statements
 
-//create a variable to store the user input - create an object to store user inputs which will include muliple attributeds
+// function passQualCheck(specCharTF, numCharTF, lowerCaseCharTF, upperCaseCharTF) {
+//   if (specCharTF === false && numCharTF === false && lowerCaseCharTF === false && upperCaseCharTF === false) {
+//     alert("Please include at least one type of characters");
+//     RunQualCheck ();
+//     }
+//   }
 
-var passOptions = {
-  passLenght: passLenght,
-  specialChars: ... ,
-  numeriacalChars: ... ,
-  lowerCase: ... ,
-  upperCase: ... ,
+// passQualCheck();
 
-}
+// console.log(passwordOptions.lenght);
+// ------------------------------------------------------------------------------------------------
+
 //-------------------------------------------------
 
-// Function for getting a random element fro man array
+// Function for getting a random element from an array
 //check out math.random 
 //-------------------------------------------------
 
+
+
 //Function to generate a password with the user input function created before (function to include a fucntion)
 
-function generatePass {
-   //create variables and call our function so we can use data from the previous funciotn
-   var userOptions = getUserOptions ();
+// function generatePass {
+//create variables and call our function so we can use data from the previous funciotn
+//  var userOptions = getUserOptions ();
 
-  // create a variable to store the newly generated password
-  //var results = []
-  
-  // array to store teh types of characters to include in our password 
-  //var userPosChar = []
+// create a variable to store the newly generated password
+//var results = []
 
-  // array to contain at leaset one of each chosen tyoe of characters to make sure at least one of every character is being used (validation)
+// array to store teh types of characters to include in our password 
+//var userPosChar = []
 
-  // create conditional statems that add the array of characters into an array of possible characters based on our user input
-  //need to push our new random characters to the guaranteed characters (look up .contact())
-    // if(userOptions.specialCharacters) {
-      // take characters and contat()
-      //take characters and push (randomizationfunction (SpecialCharacter)(after we randomize)
-    //}
-    // create conditional statems that add the array of characters into an array of possible characters based on our user input
-  //need to push our new random characters to the guaranteed characters (look up .contact())
-  // for numarals
+// array to contain at leaset one of each chosen tyoe of characters to make sure at least one of every character is being used (validation)
 
-    // create conditional statems that add the array of characters into an array of possible characters based on our user input
-  //need to push our new random characters to the guaranteed characters (look up .contact())
-   // for upper case chars 
+// create conditional statems that add the array of characters into an array of possible characters based on our user input
+//need to push our new random characters to the guaranteed characters (look up .contact())
+// if(userOptions.specialCharacters) {
+// take characters and contat()
+//take characters and push (randomizationfunction (SpecialCharacter)(after we randomize)
+//}
+// create conditional statems that add the array of characters into an array of possible characters based on our user input
+//need to push our new random characters to the guaranteed characters (look up .contact())
+// for numarals
 
-    // create conditional statems that add the array of characters into an array of possible characters based on our user input
-  //need to push our new random characters to the guaranteed characters (look up .contact())
-  // for lower case chars
+// create conditional statems that add the array of characters into an array of possible characters based on our user input
+//need to push our new random characters to the guaranteed characters (look up .contact())
+// for upper case chars 
+
+// create conditional statems that add the array of characters into an array of possible characters based on our user input
+//need to push our new random characters to the guaranteed characters (look up .contact())
+// for lower case chars
 
 //create a for loop to pluck out random options objects and graing random characters from the array of possible character and contact them 
 //into the results variable
 
 //create another for loop to guarantee at least one character from each possible character in the results
 
-// 
+// // 
 
 
-}
+// }
 
 
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+// // Assignment Code
+// var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-}
+// }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
