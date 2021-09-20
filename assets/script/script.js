@@ -17,11 +17,11 @@ function passwordGenerator() {
 
   //Array of lowerCase characters (look up .split())
   var lowerCaseCharsArr = ("abcdefghijklmnopqrstuvwxyz").split('');
-  console.log(lowerCaseCharsArr[12]);
+    console.log(lowerCaseCharsArr);
 
   // //Arrat of upperCase characters (look up .split())
   var upperCaseCharsArr = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split('');
-  console.log(upperCaseCharsArr[25]);
+  console.log(upperCaseCharsArr);
 
   // ------------------------------------------------------------------------------------------------
   // check for password quality
